@@ -1,4 +1,5 @@
 FROM alpine:latest
+
 # Adapted from: https://github.com/frol/docker-alpine-python3/blob/master/Dockerfile
 RUN apk add --no-cache poppler-utils python3 && \
     python3 -m ensurepip && \
@@ -10,4 +11,4 @@ RUN apk add --no-cache poppler-utils python3 && \
 
 COPY webserver.py /webserver.py
 
-CMD ["/webserver.py"]
+CMD ["/usr/bin/python3", "webserver.py"]

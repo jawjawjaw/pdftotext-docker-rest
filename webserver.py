@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 import os
 import socket
 import sys
@@ -26,7 +26,8 @@ def handle_file():
                 f.write(data)
             sys.stdout.flush()
         file_path_out = file_path_in + ".txt"
-        call(["/usr/bin/pdftotext", file_path_in, file_path_out])
+        a = call(["/usr/bin/pdftotext", "-layout", "-nodiag", "-nopgbrk", file_path_in, file_path_out])
+
         with open(file_path_out, 'r') as f:
             r = f.read()
         return r.rstrip("\f")
